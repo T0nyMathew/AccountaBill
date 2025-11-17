@@ -450,7 +450,7 @@ s        <symbol id="icon-invested" viewBox="0 0 24 24" fill="none" stroke="curr
                 <option value="Mex$">Mex$ - MXN</option>
                 <option value="₱">₱ - PHP</option>
                 <option value="฿">฿ - THB</option>
-                <option value="₫">₫ - VND</option>
+                <option valueD="₫">₫ - VND</option>
             </select>
             <button id="dark-mode-toggle">
                 <svg class="icon-moon"><use href="#icon-moon"></use></svg>
@@ -1107,7 +1107,8 @@ s        <symbol id="icon-invested" viewBox="0 0 24 24" fill="none" stroke="curr
                 }
             });
             
-            const net = totalSaved - totalSaved;
+            // FIX: This was the logic bug!
+            const net = totalSaved - totalSpent; 
             document.getElementById('summary-spent').innerText = `${currencySymbol}${totalSpent.toFixed(0)}`;
             document.getElementById('summary-saved').innerText = `${currencySymbol}${totalSaved.toFixed(0)}`;
             const netEl = document.getElementById('summary-net');
